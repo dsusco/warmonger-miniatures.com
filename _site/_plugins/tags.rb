@@ -86,9 +86,9 @@ module Jekyll
               b = b['index.html'] if b.is_a?(Hash)
 
               begin
-                if a.data['local_nav_weight'] < b.data['local_nav_weight']
+                if a.data['local_nav_weight'].to_i < b.data['local_nav_weight'].to_i
                   -1
-                elsif a.data['local_nav_weight'] > b.data['local_nav_weight']
+                elsif a.data['local_nav_weight'].to_i > b.data['local_nav_weight'].to_i
                   1
                 else
                   0
