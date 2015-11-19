@@ -39,6 +39,7 @@ source: ./_site
 destination: ./public_html
 
 # Outputting
+permalink: /news/:year/:month/:title.html
 timezone: America/New_York
 
 defaults:
@@ -50,3 +51,15 @@ defaults:
       type: pages
     values:
       layout: page
+      permalink: /:path/:basename:output_ext
+  -
+    scope:
+      type: posts
+    values:
+      author: Dave
+      layout: post
+  -
+    scope:
+      path: news
+    values:
+      local_nav: /news/
