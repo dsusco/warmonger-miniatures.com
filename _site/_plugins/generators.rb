@@ -40,4 +40,17 @@ module Jekyll
       end
     end
   end
+
+  class PagesHashGenerator < Generator
+    safe true
+    priority :high
+
+    def generate(site)
+      site.data['pages'] = {}
+
+      site.each_site_file do |f|
+        site.data['pages'][f.url] = f if f.is_a?(Jekyll::Document) or f.html?
+      end
+    end
+  end
 end
