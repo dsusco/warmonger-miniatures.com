@@ -69,6 +69,12 @@ defaults:
       local_nav: /news/
   -
     scope:
+      path: store
+    values:
+      layout: product
+      local_nav: /store/
+  -
+    scope:
       path: tags
     values:
       local_nav: /news/

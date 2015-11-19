@@ -1,0 +1,15 @@
+---
+layout: page
+---
+{{ content }}{% assign products = page.products | sort: 'id' %}{% for product in products %}
+<div class="col-md-6 col-xs-12">
+  <figure class="thumbnail">
+    <figcaption><a href="{{ product.url }}">{{ product.product_name }}</a></figcaption>
+
+    <a href="{{ product.url }}"><img alt="{{ product.product_name }}" src="{{ product.images[1].url }}"></a>
+
+{% include paypal_form.html product=product %}
+
+  </figure>
+</div>
+{% endfor %}

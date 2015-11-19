@@ -1,5 +1,29 @@
 module Jekyll
   module Tags
+    class BreadcrumbsTag < Liquid::Tag
+      def initialize(tag_name, markup, parse_context)
+        markup.strip!.gsub!(/\\([{}])/, '\1')
+        super
+      end
+
+      def render(context)
+        page = current_page = context.registers[:site].data['pages'][context.registers[:page]['url']]
+        breadcrumbs = []
+
+        while page
+          breadcrumbs.unshift(page)
+          page = page.data['parent']
+        end
+
+        breadcrumbs.reduce('') do |html, breadcrumb|
+          html += Liquid::Template.parse(@markup).render({
+            'breadcrumb'=> breadcrumb,
+            'page'=> current_page
+          }) + "\n"
+        end
+      end
+    end
+
     class HeadingTag < Liquid::Tag
       def initialize(tag_name, markup, parse_context)
         markup.strip!
@@ -88,6 +112,7 @@ module Jekyll
       end
     end
 
+    Liquid::Template.register_tag('breadcrumbs', Jekyll::Tags::BreadcrumbsTag)
     Liquid::Template.register_tag('heading', Jekyll::Tags::HeadingTag)
     Liquid::Template.register_tag('local_nav', Jekyll::Tags::LocalNavTag)
     Liquid::Template.register_tag('short_title', Jekyll::Tags::ShortTitleTag)

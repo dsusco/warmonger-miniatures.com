@@ -1,6 +1,7 @@
 module Jekyll
   require './_site/_helpers/hash'
   require 'less'
+  require 'rss'
   require 'uglifier'
 
   class DocumentLocalNavWeightGenerator < Generator
@@ -96,6 +97,25 @@ module Jekyll
     end
   end
 
+  class ProductImagesGenerator < Generator
+    safe true
+    priority :highest
+
+    def generate(site)
+      site.pages.each do |page|
+        if page.html? and page.data['layout'].eql?('product')
+          open(page.data['rss']) do |rss|
+            page.data['images'] = []
+
+            RSS::Parser.parse(rss).channel.items.each do |item|
+              page.data['images'] << { 'title' => item.title, 'url' => item.enclosure.url }
+            end
+          end
+        end
+      end
+    end
+  end
+
   class TagsIndexPageGenerator < Generator
     safe true
     priority :highest
@@ -130,13 +150,13 @@ module Jekyll
     def generate(site)
       site.data['local_nav'] = {}
 
-      site.each_site_file do |f|
-        if f.is_a?(Jekyll::Document) or f.html?
+      site.each_site_file do |file|
+        if file.is_a?(Jekyll::Document) or file.html?
           local_nav = site.data['local_nav']
 
-          f.url.split(/\//).each do |token|
+          file.url.split(/\//).each do |token|
             if token.end_with?('.html')
-              local_nav[token] = f
+              local_nav[token] = file
             else
               token += '/'
 
@@ -157,8 +177,42 @@ module Jekyll
     def generate(site)
       site.data['pages'] = {}
 
-      site.each_site_file do |f|
-        site.data['pages'][f.url] = f if f.is_a?(Jekyll::Document) or f.html?
+      site.each_site_file do |file|
+        site.data['pages'][file.url] = file if file.is_a?(Jekyll::Document) or file.html?
+      end
+    end
+  end
+
+  class BreadcrumbsGenerator < Generator
+    safe true
+    priority :normal
+
+    def generate(site)
+      site.each_site_file do |file|
+        if file.is_a?(Jekyll::Document) or file.html? and not file.url.eql?('/index.html')
+          if file.is_a?(Jekyll::Document) or not file.index?
+            parent_url = file.url.gsub(/\/[^\/]+\.html\z/, '/index.html')
+          else
+            parent_url = file.url.gsub(/\/[^\/]+\/index\.html\z/, '/index.html')
+          end
+
+          file.data['parent'] = site.data['pages'][parent_url] unless parent_url.empty?
+        end
+      end
+    end
+  end
+
+  class StoreCategoryGenerator < Generator
+    safe true
+    priority :low
+
+    def generate(site)
+      site.pages.each do |page|
+        if page.html? and page.data['layout'].eql?('product')
+          category = page.data['parent']
+          category.data['products'] = [] if category.data['products'].nil?
+          category.data['products'] << page
+        end
       end
     end
   end

@@ -4,6 +4,8 @@
   {% include local_nav.html heading='Archive' %}
 
   {% include tags.html %}
+{% elsif  page.local_nav == '/store/'  %}
+  {% include local_nav.html heading='Categories' %}
 {% endif %}
 
 {% include newsletter_subscription_form.html %}
