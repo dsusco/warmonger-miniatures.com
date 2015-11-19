@@ -1,0 +1,9 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Tags</div>
+
+  <div class="panel-body">{% assign tags = site.data.tags | sort: 'short_title' %}
+    <ul class="list-inline">{% for tag in tags %}
+      <li>{% if page.url != tag.url %}<a href="{{ tag.url }}">{{ tag.short_title }}</a>{% else %}{{ tag.short_title }}{% endif %}</li>{% endfor %}
+    </ul>
+  </div>
+</div>

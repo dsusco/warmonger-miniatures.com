@@ -34,6 +34,10 @@ less:
 css:
   compress: true
 
+# Tags
+tag_index_permalink: /tags/:tag
+tag_index_title: :tag News
+
 # Where things are
 source: ./_site
 destination: ./public_html
@@ -61,5 +65,10 @@ defaults:
   -
     scope:
       path: news
+    values:
+      local_nav: /news/
+  -
+    scope:
+      path: tags
     values:
       local_nav: /news/

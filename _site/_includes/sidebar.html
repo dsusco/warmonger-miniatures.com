@@ -1,3 +1,9 @@
 {% include search_form.html %}
 
+{% if page.local_nav == '/news/' %}
+  {% include local_nav.html heading='Archive' %}
+
+  {% include tags.html %}
+{% endif %}
+
 {% include newsletter_subscription_form.html %}
