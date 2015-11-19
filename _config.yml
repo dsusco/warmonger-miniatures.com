@@ -24,6 +24,16 @@ stylesheets:
 tagline: 10mm for the Aspiring Warmaster
 title: Warmonger Miniatures
 
+# LESS
+less:
+  paths:
+    - ./bower_components
+    - ./_site/_assets/stylesheets
+
+# CSS
+css:
+  compress: true
+
 # Where things are
 source: ./_site
 destination: ./public_html
