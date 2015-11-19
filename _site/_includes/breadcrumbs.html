@@ -1,0 +1,3 @@
+<ul class="list-inline">
+  {% breadcrumbs <li>\{% if page.url != breadcrumb.url %\}<a href="{{ breadcrumb.url | replace: 'index.html' }}">\{% short_title breadcrumb %\}</a>\{% else %\}\{% short_title breadcrumb %\}\{% endif %\}</li> %}
+</ul>
