@@ -1,0 +1,11 @@
+# Where things are
+source: ./_site
+destination: ./public_html
+
+# Outputting
+timezone: America/New_York
+
+defaults:
+  -
+    values:
+      layout: default
