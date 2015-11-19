@@ -1,5 +1,5 @@
 #ruby=2.2.2
-#ruby-gemset=jekyll
+#ruby-gemset=warmonger-miniatures.com
 source 'https://rubygems.org'
 
 gem 'jekyll', '~> 3.0.1'
