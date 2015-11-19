@@ -150,7 +150,7 @@ module Jekyll
     def generate(site)
       site.data['local_nav'] = {}
 
-      site.each_site_file do |file|
+      (site.pages + site.documents).each do |file|
         if file.is_a?(Jekyll::Document) or file.html?
           local_nav = site.data['local_nav']
 
@@ -177,7 +177,7 @@ module Jekyll
     def generate(site)
       site.data['pages'] = {}
 
-      site.each_site_file do |file|
+      (site.pages + site.documents).each do |file|
         site.data['pages'][file.url] = file if file.is_a?(Jekyll::Document) or file.html?
       end
     end
@@ -188,7 +188,7 @@ module Jekyll
     priority :normal
 
     def generate(site)
-      site.each_site_file do |file|
+      (site.pages + site.documents).each do |file|
         if file.is_a?(Jekyll::Document) or file.html? and not file.url.eql?('/index.html')
           if file.is_a?(Jekyll::Document) or not file.index?
             parent_url = file.url.gsub(/\/[^\/]+\.html\z/, '/index.html')
