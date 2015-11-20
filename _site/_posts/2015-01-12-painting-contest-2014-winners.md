@@ -1,6 +1,6 @@
 ---
 title: Warmonger Miniatures Painting Contest 2014 Winners
-date: 2015-01-05 09:58:00 EDT
+date: 2015-01-12 11:42:00 EDT
 description: Congratulations to the winners of Warmonger Miniatures' first painting contest.
 tags: Announcements
 ---
