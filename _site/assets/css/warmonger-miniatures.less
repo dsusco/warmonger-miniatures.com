@@ -38,6 +38,34 @@
   > :last-child { margin-bottom: 0; }
 }
 
+.carousel-caption {
+  bottom: @line-height-computed;
+  padding: 0;
+}
+.carousel-control {
+  &:hover, &:focus { .opacity(.25); }
+}
+.carousel-indicators {
+  bottom: 0;
+  margin-bottom: 0;
+}
+
+.img-thumbnail {
+  margin-bottom: @line-height-computed;
+
+  .caption { margin-top: @line-height-computed / 2; }
+}
+
+.jumbotron {
+  background: none;
+  border: 1px solid @jumbotron-bg;
+
+  h1, .h1 {
+    font-size: 300%;
+    line-height: 1;
+  }
+}
+
 .list-inline-csv {
   display: inline-block;
   padding-left: 0;
@@ -52,28 +80,4 @@
 .list-inline li { padding: 0; }
 .panel ul { padding-left: 1em; }
 
-.carousel {
-  margin: 0 auto;
-  max-width: 420px;
-}
-
-.jumbotron {
-  background: none;
-  border: 1px solid @jumbotron-bg;
-
-  h1, .h1 {
-    font-size: 300%;
-    line-height: 1;
-  }
-}
-
-.carousel-caption {
-  bottom: .25em;
-}
-
-.img {
-  margin-bottom: @line-height-computed;
-  text-align: center;
-
-  img { margin-bottom: @thumbnail-padding; }
-}
+.page-header { margin-top: 0; }

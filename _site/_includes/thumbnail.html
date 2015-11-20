@@ -1,7 +1,7 @@
-<div class="img">
-  <a class="img-thumbnail text" href="{{ include.url | picasa_width: 0 }}" data-gallery>
+<div class="text-center">
+  <a class="img-thumbnail" href="{{ include.url | picasa_width: 0 }}" data-gallery>
     <img class="img-responsive" alt="{{ include.title }}" src="{{ include.url | picasa_width: 720 }}">
 
-    <div>{{ include.title }}</div>
+    <div class="caption">{{ include.title }}</div>
   </a>
 </div>
