@@ -12,7 +12,7 @@ layout: default
   <div class="small">Posted by {{ page.author }} at {{ page.date | date: '%I:%M%p' }}</div>
   <div class="small">
     Tags:
-    <ul>{% for tag in page.tags %}
+    <ul class="list-inline-csv">{% for tag in page.tags %}
       <li><a href="/news/tag/{{ tag }}/">{{ tag }}</a></li>{% endfor %}
     </ul>
   </div>

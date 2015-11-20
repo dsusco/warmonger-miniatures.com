@@ -1,11 +1,77 @@
 ---
 ---
 @import 'bootstrap';
-@import (inline) 'blueimp-gallery/css/blueimp-gallery.css';
-@import (inline) 'blueimp-bootstrap-image-gallery/css/bootstrap-image-gallery.css';
+@import (inline) 'blueimp-gallery/css/blueimp-gallery.min.css';
+@import (inline) 'blueimp-bootstrap-image-gallery/css/bootstrap-image-gallery.min.css';
 
-.local-nav {
-  &, ul {
-    padding-left: 1em;
+#header {
+  background: @brand-primary;
+  padding: 1.5em;
+
+  .h1 { margin: 0; }
+
+  a, .small {
+    color: @btn-primary-color;
+    text-decoration: none;
   }
+}
+
+#nav {
+  background: #f7f7f7;
+  margin-bottom: 1.5em;
+
+  a { border-radius: 0; }
+
+
+}
+
+#sidebar {
+  > * { margin-bottom: @line-height-computed; }
+}
+
+#content {}
+
+#footer {
+  background: #f7f7f7;
+  margin-top: 1.5em;
+  padding: 1.5em 0;
+}
+
+.list-inline-csv {
+  display: inline-block;
+  padding-left: 0;
+
+  li {
+    display: inline;
+
+    &:after { content: ','; }
+    &:last-child:after { content: none; }
+  }
+}
+.list-inline li { padding: 0; }
+.panel ul { padding-left: 1em; }
+
+.carousel {
+  margin: 0 auto;
+  max-width: 420px;
+}
+
+.jumbotron {
+  background: none;
+  border: 1px solid @jumbotron-bg;
+
+  h1, .h1 {
+    font-size: 300%;
+    line-height: 1;
+  }
+}
+
+.carousel-caption {
+  bottom: .25em;
+}
+
+.img {
+  text-align: center;
+
+  img { margin-bottom: 0; }
 }
