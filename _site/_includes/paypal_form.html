@@ -1,25 +1,22 @@
 <form class="form-inline text-right" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="paypal">{% unless product %}{% assign product = page %}{% endunless %}
   <span>{{ product.cost }}</span>
-  <div class="form-group">
-    <span class="select-group">
-      <label>
-        <span class="sr-only">Number:</span>
 
-        <select class="form-control" name="quantity">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-      </label>
-    </span>
-  </div>
+  <label>
+    <span class="sr-only">Number:</span>
+
+    <select class="form-control" name="quantity">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+  </label>
 
   <input class="btn btn-primary" name="submit" type="submit" value="Add to Cart">
 
