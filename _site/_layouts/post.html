@@ -13,7 +13,7 @@ layout: default
   <div class="small">
     Tags:
     <ul class="list-inline-csv">{% for tag in page.tags %}
-      <li><a href="/news/tag/{{ tag }}/">{{ tag }}</a></li>{% endfor %}
+      <li><a href="/tags/{{ tag }}/">{{ tag }}</a></li>{% endfor %}
     </ul>
   </div>
 </div>{% if page.previous or page.next %}

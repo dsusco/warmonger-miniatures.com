@@ -75,6 +75,25 @@
   }
 }
 .list-inline li { padding: 0; }
-.panel ul { padding-left: 1em; }
+
+.local-nav {
+  &, ul { margin-left: 0; }
+
+  ul { padding-left: 1.5em; }
+}
 
 .page-header { margin-top: 0; }
+
+a.unstyled {
+  color: @text-color;
+
+  &:hover, &:focus {
+    color: @text-color;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+    outline-offset: 0;
+  }
+}

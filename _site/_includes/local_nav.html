@@ -2,8 +2,8 @@
   <div class="panel-heading">{{ include.heading }}</div>
 
   <div class="panel-body">
-    <ul class="local-nav">
-      {% local_nav <li>\{% if page.url != link.url %\}<a href="{{ link.url | replace: 'index.html' }}">\{% short_title link %\}</a>\{% else %\}\{% short_title link %\}\{% endif %\}\{% if section %\}<ul>{{ section }}</ul>\{% endif %\}</li> %}
+    <ul class="local-nav fa-ul">
+      {% local_nav <li><i class="fa fa-li"></i>\{% if page.url != link.url %\}<a href="{{ link.url | replace: 'index.html' }}">\{% short_title link %\}</a>\{% else %\}<a id="current-post" class="unstyled">\{% short_title link %\}</a>\{% endif %\}\{% if section %\}<ul class="fa-ul">{{ section }}</ul>\{% endif %\}</li> %}
     </ul>
   </div>
 </div>
