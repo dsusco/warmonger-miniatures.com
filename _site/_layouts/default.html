@@ -39,8 +39,8 @@
     <script src="{{ script }}"></script>{% endfor %}{% if page.script %}
 
     <script>
-{{ page.script }}   </script>{% endif %}
+{{ page.script }}   </script>{% endif %}{% if page.id %}
 
-{% include gallery.html %}
+{% include gallery.html %}{% endif %}
   </body>
 </html>
