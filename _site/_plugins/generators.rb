@@ -66,18 +66,17 @@ module Jekyll
 
         File.dirname(document.url).split(/\//).slice(1..-1).each do |token|
           dir += token + '/'
+          short_title = token.split.map(&:capitalize).join(' ') or token.capitalize
+
+          if (title =~ /\d$/) and (short_title =~ /^\d+$/)
+            title = title + '-' + short_title rescue short_title
+          else
+            title = title + ' ' + short_title rescue short_title
+          end
 
           if index_pages["#{dir}index.html"]
             index_pages["#{dir}index.html"].data['documents'].unshift(document)
           else
-            short_title = token.split.map(&:capitalize).join(' ') or token.capitalize
-
-            if (title =~ /\d$/) and (short_title =~ /^\d+$/)
-              title = title + '-' + short_title rescue short_title
-            else
-              title = title + ' ' + short_title rescue short_title
-            end
-
             index = NewsIndexPage.new(
               site,
               dir,
