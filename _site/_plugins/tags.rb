@@ -63,16 +63,24 @@ module Jekyll
         def render_local_nav(links, page)
           sort_local_nav(links).reduce('') do |html, link|
             if link.is_a?(Hash)
-              html += Liquid::Template.parse(@markup).render({
-                'link'=> link['index.html'],
-                'page'=> page,
-                'section'=> render_local_nav(link, page)
-              }) + "\n"
+              unless link['index.html'].data['hide_local_nav']
+                html += Liquid::Template.parse(@markup).render({
+                  'link'=> link['index.html'],
+                  'page'=> page,
+                  'section'=> render_local_nav(link, page)
+                }) + "\n"
+              else
+                html
+              end
             elsif link.is_a?(Jekyll::Document) or not link.index?
-              html += Liquid::Template.parse(@markup).render({
-                'link'=> link,
-                'page'=> page
-              }) + "\n"
+              unless link.data['hide_local_nav']
+                html += Liquid::Template.parse(@markup).render({
+                  'link'=> link,
+                  'page'=> page
+                }) + "\n"
+              else
+                html
+              end
             else
               html
             end

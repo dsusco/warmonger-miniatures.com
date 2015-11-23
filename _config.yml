@@ -31,7 +31,7 @@ css:
   compress: true
 
 # Tags
-tag_index_permalink: /tags/:tag
+tag_index_permalink: /news/tags/:tag
 tag_index_title: :tag News
 
 # Where things are

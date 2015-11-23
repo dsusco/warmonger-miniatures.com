@@ -81,13 +81,13 @@ module Jekyll
               site,
               dir,
               { description: "#{site.config['title']} #{title.downcase.gsub(/(news)(.*)/, '\2 \1').strip} listing: keep up to date on the latest #{site.config['title']} news.",
+                documents: [document],
                 short_title: short_title,
                 title: title
               }
             )
 
             index_pages[index.url] = index
-            index_pages[index.url].data['documents'] = [document]
           end
         end
       end
@@ -121,20 +121,30 @@ module Jekyll
 
     def generate(site)
       site.data['tags'] = []
-      index_pages = {}
+      index_pages = {
+        site.config['tag_index_permalink'].gsub(/:tag/, 'index.html') => NewsIndexPage.new(
+            site,
+            site.config['tag_index_permalink'].gsub(/:tag/, ''),
+            { description: "News tag listing: keep up to date on the latest #{site.config['title']} news.",
+              hide_local_nav: true,
+              short_title: 'Tags',
+              title: 'News Tags'
+            }
+          )
+      }
 
       site.tags.each do |tag, documents|
         index = NewsIndexPage.new(
           site,
           site.config['tag_index_permalink'].gsub(/:tag/, tag),
           { description: "#{tag} news listing: keep up to date on the latest #{site.config['title']} news.",
+            documents: documents,
             short_title: tag,
             title: site.config['tag_index_title'].gsub(/:tag/, tag)
           }
         )
 
         index_pages[index.url] = index
-        index_pages[index.url].data['documents'] = documents
         site.data['tags'] << index
       end
 
