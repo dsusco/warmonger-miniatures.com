@@ -14,10 +14,6 @@ keywords:
   - renaissance
   - wargame
 scripts:
-  - //code.jquery.com/jquery-2.1.4.min.js
-  - //maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js
-  - //cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.16.0/js/jquery.blueimp-gallery.min.js
-  - //cdn.jsdelivr.net/bootstrap.image-gallery/3.1.0/js/bootstrap-image-gallery.min.js
   - /assets/js/warmonger-miniatures.js
 stylesheets:
   - /assets/css/warmonger-miniatures.css

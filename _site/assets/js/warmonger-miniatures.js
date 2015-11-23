@@ -1,11 +1,10 @@
 ---
-~include:
+include:
   - bower_components/jquery/dist/jquery.js
   - bower_components/bootstrap/dist/js/bootstrap.js
+  - bower_components/blueimp-gallery/js/blueimp-gallery.js
   - bower_components/blueimp-gallery/js/jquery.blueimp-gallery.js
   - bower_components/blueimp-bootstrap-image-gallery/js/bootstrap-image-gallery.js
-include:
-  - _site/_assets/javascripts/gcse.js
 ---
 $(function () {
   'use strict';
