@@ -1,10 +1,12 @@
 ---
 layout: page
 ---
+<div class="col-lg-7 col-lg-push-5">
 {{ content }}
 
 {% include paypal_form.html %}
+</div>
 
+<div class="col-lg-5 col-lg-pull-7">
 {% include carousel.html %}
-
-{% include gallery.html %}
+</div>
