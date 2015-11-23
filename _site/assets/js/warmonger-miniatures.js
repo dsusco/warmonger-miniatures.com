@@ -29,7 +29,7 @@ $(function () {
 
   var
     $currentPost = $('#current-post'),
-    $localNav = $('.local-nav').css('margin-left', '1.5em');
+    $localNav = $('.local-nav');
 
   // if not on the post, set it to the first one
   if ($currentPost.length === 0) {
