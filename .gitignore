@@ -1,2 +1,11 @@
+.*
+access-logs
 bower_components/
+etc/
+logs/
+mail/
 public_html/
+ruby/
+ssl/
+tmp/
+www
