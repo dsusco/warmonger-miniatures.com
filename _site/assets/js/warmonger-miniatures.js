@@ -1,6 +1,7 @@
 ---
 include:
   - bower_components/enquire/dist/enquire.js
+  - bower_components/js-cookie/src/js.cookie.js
   - bower_components/jquery/dist/jquery.js
   - bower_components/bootstrap/dist/js/bootstrap.js
   - bower_components/blueimp-gallery/js/blueimp-gallery.js
@@ -61,7 +62,12 @@ $(function () {
   // collapse all widgets when screen is xs, uncollapse when not
   enquire.register('screen and (max-width: 720px)', {
     match: function onEnquireMatchXS() {
-      $widgets.addClass('collapse');
+      $widgets
+        .addClass('collapse')
+        .filter(function filterShownWidgets() {
+          return Cookies.get($(this).attr('id') + 'WidgetShow');
+        })
+          .addClass('in');
     },
     unmatch: function onEnquireUnmatchXS() {
       $widgets.removeClass('collapse in').removeAttr('style');
@@ -69,7 +75,11 @@ $(function () {
   });
 
   $widgets
-    .on('show.bs.collapse', function onWidgetCollapse() {
+    .on('show.bs.collapse', function onWidgetShow() {
+      Cookies.set($(this).attr('id') + 'WidgetShow', true)
       $('html, body').animate({ scrollTop: $('#nav').offset().top });
+    })
+    .on('hide.bs.collapse', function onWidgetHide() {
+      Cookies.remove($(this).attr('id') + 'WidgetShow')
     });
 });
