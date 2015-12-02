@@ -60,11 +60,16 @@ $(function () {
 
   // collapse all widgets when screen is xs, uncollapse when not
   enquire.register('screen and (max-width: 720px)', {
-    match: function () {
+    match: function onEnquireMatchXS() {
       $widgets.addClass('collapse');
     },
-    unmatch: function () {
+    unmatch: function onEnquireUnmatchXS() {
       $widgets.removeClass('collapse in').removeAttr('style');
     }
   });
+
+  $widgets
+    .on('show.bs.collapse', function onWidgetCollapse() {
+      $('html, body').animate({ scrollTop: $('#nav').offset().top });
+    });
 });
