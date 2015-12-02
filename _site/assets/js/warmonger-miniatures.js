@@ -1,5 +1,6 @@
 ---
 include:
+  - bower_components/enquire/dist/enquire.js
   - bower_components/jquery/dist/jquery.js
   - bower_components/bootstrap/dist/js/bootstrap.js
   - bower_components/blueimp-gallery/js/blueimp-gallery.js
@@ -29,9 +30,10 @@ $(function () {
 
   var
     $currentPost = $('#current-post'),
-    $localNav = $('.local-nav');
+    $localNav = $('.local-nav'),
+    $widgets = $('#sidebar > *');
 
-  // if not on the post, set it to the first one
+  // if not on a post page, set the current post to the first one
   if ($currentPost.length === 0) {
     $currentPost = $('ul:not(:has(ul)) a', $localNav).first();
   }
@@ -55,4 +57,14 @@ $(function () {
       .toggleClass('fa-plus-square-o fa-minus-square-o')
       .siblings('ul')
         .toggle();
+
+  // collapse all widgets when screen is xs, uncollapse when not
+  enquire.register('screen and (max-width: 720px)', {
+    match: function () {
+      $widgets.addClass('collapse');
+    },
+    unmatch: function () {
+      $widgets.removeClass('collapse in').removeAttr('style');
+    }
+  });
 });
