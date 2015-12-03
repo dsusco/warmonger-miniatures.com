@@ -74,6 +74,7 @@ $(function () {
     }
   });
 
+  // set/remove cookie on widget collapse/show
   $widgets
     .on('show.bs.collapse', function onWidgetShow() {
       Cookies.set($(this).attr('id') + 'WidgetShow', true)
