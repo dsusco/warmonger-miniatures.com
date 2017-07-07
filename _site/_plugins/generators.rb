@@ -3,6 +3,7 @@ module Jekyll
   require 'less'
   require 'rss'
   require 'uglifier'
+  require 'flickraw'
 
   class DocumentLocalNavWeightGenerator < Generator
     safe true
@@ -101,14 +102,20 @@ module Jekyll
     priority :highest
 
     def generate(site)
+      FlickRaw.api_key = '539ee4294ee9fab0ab00bccc122ef2f9'
+      FlickRaw.shared_secret = ''
+
       site.pages.each do |page|
         if page.html? and page.data['layout'].eql?('product')
-          open(page.data['rss']) do |rss|
-            page.data['images'] = []
+          page.data['images'] ||= []
 
-            RSS::Parser.parse(rss).channel.items.each do |item|
-              page.data['images'] << { 'title' => item.title, 'url' => item.enclosure.url }
-            end
+          flickr.photosets.getPhotos({ photoset_id: page.data['photoset_id'] }).photo.each do |photo|
+            page.data['images'] <<
+              photo.to_hash.merge({
+                'sizes' => flickr.photos.getSizes({ photo_id: photo.id }).size.map { |size|
+                  [size.label, { 'height' => size.height, 'width' => size.width, 'url' => size.source }]
+                } .to_h
+              })
           end
         end
       end
