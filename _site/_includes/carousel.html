@@ -7,7 +7,7 @@
 
       <div class="carousel-inner">{% for image in page.images %}
         <div class="item{% if forloop.first %} active{% endif %}">
-          <a href="{{ image.sizes['Medium 800'].url }}" title="{{ image.title }}" data-gallery="#gallery">
+        <a href="{{ image.sizes['Medium 800'].url }}" title="{{ image.title }}" data-gallery="#gallery">
             <img src="{{ image.sizes['Medium 640'].url }}" alt="{{ image.title }}">
           </a>
           <div class="carousel-caption">{{ image.title }}</div>
