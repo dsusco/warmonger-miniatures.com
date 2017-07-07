@@ -6,7 +6,7 @@ layout: page
   <figure class="thumbnail">
     <figcaption><a href="{{ product.url }}">{{ product.product_name }}</a></figcaption>
 
-    <a href="{{ product.url }}"><img alt="{{ product.product_name }}" src="{{ product.images[1].sizes['Medium 640'].url }}"></a>
+    <a href="{{ product.url }}"><img alt="{{ product.product_name }}" src="{{ product.images.first.sizes['Medium 640'].url }}"></a>
 
 {% include paypal_form.html product=product %}
 
