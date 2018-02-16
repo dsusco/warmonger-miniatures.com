@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+JEKYLL_ENV=production jekyll build
+scp -r public_html/* public_html/.htaccess warmonge@warmonger-miniatures.com:~/public_html/
