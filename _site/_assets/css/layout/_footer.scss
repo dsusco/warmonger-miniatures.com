@@ -1,0 +1,75 @@
+#footer {
+  @include _(1.4rem);
+
+  background: $_color_secondary;
+
+  > .container {
+    padding: $_ 0;
+  }
+
+  .h4 {
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+
+  .small {
+    margin-bottom: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  #footer_nav,
+  #forms_of_payment {
+    @include grid-column(4);
+  }
+
+  #forms_of_payment {
+    text-align: right;
+
+    li {
+      font-size: $_;
+    }
+  }
+
+  #copyright_info {
+    @include grid-column(4);
+
+    text-align: center;
+  }
+
+  @include grid-media($md-neat-grid) {
+    #footer_nav,
+    #forms_of_payment {
+      @include grid-column(6);
+    }
+
+    #copyright_info {
+      @include grid-column(12);
+    }
+  }
+
+  @include grid-media($lg-neat-grid) {
+    #footer_nav,
+    #forms_of_payment {
+      @include grid-column(6);
+    }
+
+    #copyright_info {
+      @include grid-column(12);
+    }
+  }
+
+  @include grid-media($xl-neat-grid) {
+    #footer_nav,
+    #forms_of_payment {
+      @include grid-column(6);
+    }
+
+    #copyright_info {
+      @include grid-column(12);
+    }
+  }
+}

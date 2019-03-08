@@ -1,57 +1,36 @@
 author: David Susco
 description: The home of high-quality, 10mm fantasy and historical minis.
-keywords:
-  - warmonger
-  - miniatures
-  - 10mm
-  - minis
-  - warmaster
-  - ancients
-  - fantasy
-  - game
-  - historical
-  - medieval
-  - renaissance
-  - wargame
 scripts:
-  - /assets/js/warmonger-miniatures.js
+  - https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js
 stylesheets:
-  - /assets/css/warmonger-miniatures.css
+  - https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
 tagline: 10mm for the Aspiring Warmaster
 title: Warmonger Miniatures
-
-# LESS
-less:
-  paths:
-    - ./bower_components
-    - ./_site/_assets/stylesheets
-
-# CSS
-css:
-  compress: true
-
-# Tags
-tag_index_permalink: /news/tag/:tag
-tag_index_title: :tag News
 
 # Where things are
 source: ./_site
 destination: ./public_html
+collections:
+  posts:
+    permalink: news/:year/:month/:title:output_ext
+  products:
+    output: true
+    permalink: store/:path:output_ext
+
+# Plugins
+plugins:
+  - jekyll-assets
 
 # Outputting
-permalink: /news/:year/:month/:title.html
 timezone: America/New_York
 
+# defaults
 defaults:
   -
     values:
-      layout: default
-  -
-    scope:
-      type: pages
-    values:
       layout: page
-      permalink: /:path/:basename:output_ext
   -
     scope:
       type: posts
@@ -60,17 +39,33 @@ defaults:
       layout: post
   -
     scope:
-      path: news
-    values:
-      local_nav: /news/
-  -
-    scope:
-      path: store
+      type: products
     values:
       layout: product
-      local_nav: /store/
   -
     scope:
-      path: tags
+      path: news
+      type: pages
     values:
-      local_nav: /news/
+      breadcrumb_template: '%{date}'
+      heading_template: 'Warmonger Miniatures %{full_date} News'
+      paginate: 5
+      title_template: '%{full_date} News'
+  -
+    scope:
+      path: news/tags
+      type: pages
+    values:
+      breadcrumb_template: '%{tag}'
+      heading_template: 'Warmonger Miniatures %{tag} News'
+      title_template: '%{tag} News'
+  -
+    scope:
+      path: store/index.html
+    values:
+      heading: Warmonger Miniatures Store
+  -
+    scope:
+      path: store/10mm-landsknechte/index.html
+    values:
+      image: http://res.cloudinary.com/warmonger-miniatures/image/upload/v1543432101/warmonger-miniatures.com/ls01/ls01.jpg

@@ -1,0 +1,38 @@
+#header {
+  background: $_color_primary;
+
+  > .container {
+    padding: $_ 0;
+  }
+
+  .h1 {
+    @include grid-column(4);
+
+    color: $_color_white;
+    margin-bottom: 0;
+    text-decoration: none;
+
+    small, .small {
+      display: block;
+      font-style: italic;
+    }
+  }
+
+  @include grid-media($md-neat-grid) {
+    .h1 {
+      @include grid-column(12);
+    }
+  }
+
+  @include grid-media($lg-neat-grid) {
+    .h1 {
+      @include grid-column(12);
+    }
+  }
+
+  @include grid-media($xl-neat-grid) {
+    .h1 {
+      @include grid-column(12);
+    }
+  }
+}

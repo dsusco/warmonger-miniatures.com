@@ -1,9 +1,14 @@
-#ruby=2.3.3
+#ruby=2.5.3
 #ruby-gemset=warmonger-miniatures.com
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 3.5.0'
-gem 'less', '~> 2.6.0'
-gem 'therubyracer', '~> 0.12.3'
-gem 'uglifier', '~> 3.2.0'
-gem 'flickraw', '~> 0.9.9'
+gem 'jekyll', '~> 3.8.5'
+gem 'activesupport', '~> 5.2.2'
+gem 'cloudinary', '~> 1.11.1'
+gem 'jekyll-assets', '~> 3.0.12'
+gem 'sprockets', '~> 3.7.2'
+gem 'uglifier', '~> 4.1.20'
+
+group :jekyll_plugins do
+  gem 'baseline-scss', '~> 0.1.0', :git => 'git@github.com:dsusco/baseline-scss.git'
+end

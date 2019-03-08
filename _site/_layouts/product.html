@@ -1,12 +1,16 @@
 ---
 layout: page
 ---
-<div class="col-lg-7 col-lg-push-5">
-{{ content }}
+<div class="product-container">
+  <div class="product-content">
+  {{ content }}
 
-{% include paypal_form.html %}
-</div>
+    <p>Sculpted by <a href="http://www.bobnaismith.com/">Bob Naismith</a> and cast by <a href="http://www.danddmodelcleaningandcasting.com/">D &amp; D Model Cleaning &amp; Casting</a> in lead free pewter.</p>
 
-<div class="col-lg-5 col-lg-pull-7">
-{% include carousel.html %}
+  {% include paypal_form.html %}
+  </div>
+
+  <div class="slideshow">{% for image in page.images %}
+    {% include image_card.html image = image %}{% endfor %}
+  </div>
 </div>

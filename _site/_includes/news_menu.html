@@ -1,0 +1,10 @@
+<ul id="{{ include.id }}" data-control="#{{ include.id }}_toggle_button">{% for pair in include.hash.index.dirs reversed %}{% assign dir = pair[1] %}
+  <li>
+    <button id="{{ dir.index.id }}_toggle_button"><span class="sr-only">Toggle {{ dir.index.breadcrumb }}</span></button>
+
+    {% breadcrumb dir.index %}
+
+{% include news_menu.html hash = dir id = dir.index.id %}
+  </li>{% endfor %}{% if include.hash.docs %}{% for doc in include.hash.docs reversed %}
+  <li>{% breadcrumb doc %}</li>{% endfor %}{% endif %}
+</ul>

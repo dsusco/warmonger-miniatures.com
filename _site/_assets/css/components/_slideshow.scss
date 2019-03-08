@@ -1,0 +1,18 @@
+.slideshow {
+  .card {
+    a {
+      border: 0;
+    }
+
+    &.entering,
+    &.exiting {
+      a:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .paginator + .slides .card a {
+    padding-bottom: $_ * 2;
+  }
+}
