@@ -1,0 +1,8 @@
+<div class="card image">
+  <a href="{{ include.image.secure_url | cloudinary_transformation: 'w_800,h_600,c_fit' }}">
+    <figure>
+      <img alt="{{ include.image.context.custom.alt }}" src="{{ include.image.secure_url | cloudinary_transformation: 'w_640,h_480,c_fit' }}" />
+      <figcaption>{{ include.image.context.custom.caption }}</figcaption>
+    </figure>
+  </a>
+</div>

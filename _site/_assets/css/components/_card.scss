@@ -1,0 +1,88 @@
+.card {
+  margin: 0 0 $_;
+  text-align: center;
+
+  a {
+    border: .1rem solid $_color_light;
+    border-radius: .4rem;
+    display: inline-block;
+    padding: (($_ / 2) - .1rem) 1rem;
+  }
+
+  figure {
+    margin: 0;
+    position: relative;
+
+    &::before {
+      @include font-awesome('\f110');
+      @include position(absolute, 0 calc(50% - #{$_font_size / 2}) null null);
+      @include prefixer(animation, fa-spin 2s infinite linear, ('webkit'));
+
+      color: $_body_color;
+      z-index: -1;
+    }
+  }
+
+  img {
+    display: block;
+    margin: ($_ / 2) auto;
+    max-width: 100%;
+    min-height: $_;
+  }
+
+  &.category,
+  &.product {
+    text-align: left;
+
+    a {
+      display: block;
+    }
+
+    figure::before {
+      top: auto;
+      bottom: 0;
+    }
+
+    @include grid-media($lg-neat-grid) {
+      @include grid-column(6);
+
+      &:nth-child(2n+1) {
+        clear: left;
+      }
+    }
+
+    @include grid-media($xl-neat-grid) {
+      @include grid-column(4);
+
+      &[class] { clear: none; }
+
+      &:nth-child(3n+1) {
+        clear: left;
+      }
+    }
+  }
+
+  &.product {
+    position: relative;
+
+    a {
+      padding-bottom: ($_ * 2.5) - .1rem;
+    }
+
+    .paypal-form {
+      @include position(absolute, null (($_ / 2) - .1rem) 1rem);
+
+      margin-bottom: 0;
+    }
+  }
+}
+
+.cards {
+  @include grid-media($lg-neat-grid) {
+    @include grid-collapse();
+  }
+
+  @include grid-media($xl-neat-grid) {
+    @include grid-collapse();
+  }
+}

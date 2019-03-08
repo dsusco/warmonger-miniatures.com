@@ -1,0 +1,63 @@
+#nav {
+  @include _(1.4rem);
+
+  background: $_color_secondary;
+  margin-bottom: $_;
+  position: relative;
+
+  #sidebar_toggle {
+    @include position(absolute, 0 0 0 null);
+
+    background: none;
+    border: 0;
+    border-radius: 0;
+    width: 2 * $_;
+  }
+
+  ul {
+    @include grid-column(4);
+
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0 (2 * $_ - map-get($neat-grid, gutter)) 0 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    padding: ($_ / 2) 1rem;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background: darken($_color_lighter, 6.25%);
+      color: darken($_link_color, 6.25%);
+    }
+  }
+
+  @include grid-media($md-neat-grid) {
+    ul {
+      @include grid-column(12);
+    }
+
+    #sidebar_toggle {
+      display: none;
+    }
+  }
+
+  @include grid-media($lg-neat-grid) {
+    ul {
+      @include grid-column(12);
+    }
+  }
+
+  @include grid-media($xl-neat-grid) {
+    ul {
+      @include grid-column(12);
+    }
+  }
+}

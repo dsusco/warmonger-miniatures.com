@@ -1,0 +1,26 @@
+---
+layout: page
+---
+<div class="cards">
+  {% for pair in page.dirs %}<div class="card category">{% assign category = pair[1].index %}
+    <a href="{{ category.url }}">
+      <figure>
+        <figcaption>{{ category.title }}</figcaption>
+        <img alt="{{ category.title }}" src="{{ category.image | cloudinary_transformation: 'w_640,h_480,c_fit' }}" />
+      </figure>
+    </a>
+  </div>
+
+  {% endfor %}{% if page.docs %}{% assign products = page.docs | sort: 'product_code' %}{% for product in products %}<div class="card product">
+    <a href="{{ product.url }}">
+      <figure>
+        <figcaption>{{ product.name }}</figcaption>
+        <img alt="{{ product.name }}" src="{{ product.images[0].secure_url | cloudinary_transformation: 'w_640,h_480,c_fit' }}" />
+      </figure>
+    </a>
+
+{% include paypal_form.html product=product %}
+  </div>
+
+{% endfor %}{% endif %}
+</div>

@@ -1,0 +1,146 @@
+#sidebar {
+  @include _(1.4rem);
+  @include grid-column(4);
+
+  margin-bottom: $_;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  @include grid-media($md-neat-grid) {
+    @include grid-column(4);
+    @include grid-shift(8);
+
+    .js & {
+      display: block;
+    }
+  }
+
+  @include grid-media($lg-neat-grid) {
+    @include grid-column(4);
+    @include grid-shift(8);
+  }
+
+  @include grid-media($xl-neat-grid) {
+    @include grid-column(3);
+    @include grid-shift(9);
+  }
+}
+
+#search_form {
+  position: relative;
+
+  label {
+    margin-bottom: 0;
+  }
+
+  input {
+    padding-right: 5rem;
+  }
+
+  button {
+    @include position(absolute, 0 0 0 null);
+    @include border-left-radius(0);
+
+    width: 4rem;
+  }
+}
+
+#store,
+#news,
+#tag_cloud,
+#subscription_form {
+  border: .1rem solid $_color_primary;
+  border-radius: .4rem;
+  padding: (($_ * 2.5) - .1rem) 1rem (($_ / 2) - .1rem);
+  position: relative;
+
+  &::before {
+    @include position(absolute, 0 0 null 0);
+
+    background: $_color_primary;
+    color: $_color_white;
+    content: 'Categories';
+    padding: ($_ / 2) 1rem;
+  }
+}
+
+#store,
+#news,
+#tag_cloud {
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    position: relative;
+  }
+}
+
+#store,
+#news {
+  button {
+    display: none;
+  }
+
+  ul {
+    margin-top: $_ / 4;
+
+    li {
+      padding-left: 2rem;
+    }
+  }
+
+  li {
+    margin-bottom: $_ / 4;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .js & {
+    button {
+      background: none;
+      border: 0;
+      display: inline-block;
+      padding: 0 .5rem 0 .4rem;
+
+      &.hidden-toggle::before {
+        @include font-awesome('\f196');
+      }
+
+      &.shown-toggle::before {
+        @include font-awesome('\f147');
+      }
+    }
+  }
+}
+
+#news::before {
+  content: 'Archive';
+}
+
+#tag_cloud {
+  &::before {
+    content: 'Tags';
+  }
+
+  li {
+    display: inline;
+  }
+}
+
+#subscription_form {
+  @include clearfix();
+
+  &::before {
+    content: 'Newsletter';
+  }
+
+  button {
+    float: right;
+  }
+}

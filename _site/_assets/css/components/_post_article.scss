@@ -1,0 +1,42 @@
+.post-article {
+  margin: 0 0 $_;
+
+  header {
+    small {
+      color: $_color_gray;
+      display: block;
+    }
+  }
+
+  .button {
+    float: right;
+  }
+
+  footer {
+    @include _($_font_size_small);
+
+    margin-right: 8rem;
+  }
+}
+
+.tag-links {
+  list-style: none;
+  margin-bottom: 0;
+  padding: 0;
+
+  &::before {
+    content: 'Tags: ';
+  }
+
+  li {
+    display: inline;
+
+    &::after {
+      content: ',';
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+}

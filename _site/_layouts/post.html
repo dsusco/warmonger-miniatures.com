@@ -1,34 +1,17 @@
 ---
-layout: default
+layout: page
 ---
-<h1 class="h2">
-  <i class="small">{{ page.date | date: '%Y/%m/%d' }}</i><br>
-  {% heading page %}
-</h1>
+{{content}}
 
-{{ content }}
+<div class="small margin-bottom">
+  <div>Posted by {{ page.author }} at {{ page.date | date: '%I:%M%p' }}</div>
 
-<div>
-  <div class="small">Posted by {{ page.author }} at {{ page.date | date: '%I:%M%p' }}</div>
-  <div class="small">
-    Tags:
-    <ul class="list-inline-csv">{% for tag in page.tags %}
-      <li><a href="{{ site.tag_index_permalink | replace: ':tag', tag }}">{{ tag }}</a></li>{% endfor %}
-    </ul>
-  </div>
-</div>{% if page.previous or page.next %}
+  <ul class="tag-links">{% for tag in page.tags %}
+    <li>{% breadcrumb site.data.tags[tag] %}</li>{% endfor %}
+  </ul>
+</div>
 
-<ul class="pager">{% if page.previous %}
-  <li class="previous">
-    <a href="{{ page.previous.url }}" title="{{ page.previous.title }}">
-      <i class="fa fa-angle-left"></i>
-      Previous
-    </a>
-  </li>{% endif %}{% if page.next %}
-  <li class="next">
-    <a href="{{ page.next.url }}" title="{{ page.next.title }}">
-      Next
-      <i class="fa fa-angle-right"></i>
-    </a>
-  </li>{% endif %}
-</ul>{% endif %}
+<div class="pager">{% if page.next %}
+  <a class="button outline next" href="{{ page.next.url }}" title="{{ page.next.title }}">Next</a>{% endif %}{% if page.previous %}
+  <a class="button outline previous" href="{{ page.previous.url }}" title="{{ page.previous.title }}">Previous</a>{% endif %}
+</div>
