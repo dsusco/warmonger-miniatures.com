@@ -1,0 +1,14 @@
+---
+layout: page
+---
+{% for doc in page.paginator.docs %}{% include post_article.html post = doc %}
+
+{% endfor %}{% assign pages_size = page.paginator.pages | size%}{% if pages_size > 1 %}<div class="paginator">
+  <div>
+    {% assign first_page = page.paginator.pages | first %}{% paginator_link first_page, '<span class="sr-only">First Page</span>', 'button outline small first' %}
+    {% paginator_link page.paginator.previous_page, '<span class="sr-only">Previous Page</span>', 'button outline small previous' %}{% for p in page.paginator.pages %}
+    {% paginator_link p, forloop.index, 'button outline small' %}{% endfor %}
+    {% paginator_link page.paginator.next_page, '<span class="sr-only">Next Page</span>', 'button outline small next' %}
+    {% assign last_page = page.paginator.pages | last %}{% paginator_link last_page, '<span class="sr-only">Last Page</span>', 'button outline small last' %}
+  </div>
+</div>{% endif %}

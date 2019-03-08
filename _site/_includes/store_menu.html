@@ -1,0 +1,10 @@
+<ul id="{{ include.id }}" data-control="#{{ include.id }}_toggle_button">{% for pair in include.hash.index.dirs %}{% assign dir = pair[1] %}
+  <li>
+    <button id="{{ dir.index.id }}_toggle_button"><span class="sr-only">Toggle {{ dir.index.title }}</span></button>
+
+    {% breadcrumb dir.index %}
+
+{% include store_menu.html hash = dir id = dir.index.id %}
+  </li>{% endfor %}{% if include.hash.docs %}{% assign docs = include.hash.docs | sort: 'product_code' %}{% for doc in docs %}
+  <li>{% breadcrumb doc %}</li>{% endfor %}{% endif %}
+</ul>

@@ -1,0 +1,18 @@
+.modal {
+  .modal-body {
+    position: relative;
+
+    img {
+      position: relative;
+      z-index: 1;
+    }
+
+    &::before {
+      @include font-awesome('\f110');
+      @include prefixer(animation, fa-spin 2s infinite linear, ('webkit'));
+
+      position: absolute;
+      left: calc(50% - #{$_font_size / 2});
+    }
+  }
+}

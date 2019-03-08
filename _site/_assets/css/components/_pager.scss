@@ -1,0 +1,39 @@
+.pager {
+  @include clearfix();
+  @include _(1.4rem);
+
+  .next,
+  .previous {
+    @include padding(null 2rem);
+
+    &::before,
+    &::after {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    &.small {
+      &::before,
+      &::after {
+        font-size: 1.6rem;
+        line-height: 1;
+      }
+    }
+  }
+
+  .next {
+    float: right;
+
+    &::after {
+      content: ' ›';
+    }
+  }
+
+  .previous {
+    float: left;
+
+    &::before {
+      content: '‹ ';
+    }
+  }
+}

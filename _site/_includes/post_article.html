@@ -1,0 +1,18 @@
+<article class="post-article">
+  <header>
+    <h2>
+      <small>{{ include.post.date | date: '%Y-%m-%d' }}</small>
+      <a href="{{ include.post.url }}">{{ include.post.title }}</a>
+    </h2>
+  </header>
+
+  {{ include.post.excerpt }}  {% if include.post.content != include.post.excerpt %}<a class="button outline" href="{{ include.post.url }}">More…</a>{% endif %}
+
+  <footer>
+    <div>Posted by {{ include.post.author }} at {{ include.post.date | date: '%I:%M%p' }}</div>{% unless page.tag %}
+
+    <ul class="tag-links">{% for tag in include.post.tags %}
+      <li>{% breadcrumb site.data.tags[tag] %}</li>{% endfor %}
+    </ul>{% endunless %}
+  </footer>
+</article>

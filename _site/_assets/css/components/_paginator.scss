@@ -1,0 +1,74 @@
+.paginator {
+  overflow-x: auto;
+
+  > div {
+    display: table;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  a[class] {
+    border-radius: 0;
+    border-left-width: 0;
+    display: table-cell;
+    padding-left: .6rem;
+    min-width: 3rem;
+
+    &:first-child {
+      @include border-left-radius(.4rem);
+
+      border-left-width: .1rem;
+      padding-left: .5rem;
+    }
+
+    &:last-child {
+      @include border-right-radius(.4rem);
+    }
+
+    &.current {
+      background: $_color_primary;
+      border-color: darken($_color_primary, 6.25%);
+      border-left-width: .1rem;
+      color: $_color_white;
+      cursor: text;
+      padding-left: .5rem;
+    }
+
+    &.first,
+    &.previous,
+    &.next,
+    &.last {
+      @include _($_font_size);
+    }
+
+    &.first::before {
+      content: '«';
+    }
+
+    &.previous::before {
+      content: '‹';
+    }
+
+    &.next::before {
+      content: '›';
+    }
+
+    &.last::before {
+      content: '»';
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:not([href]):not(.current) {
+      @extend .disabled;
+
+      color: $_color_gray;
+      opacity: .75;
+    }
+  }
+}

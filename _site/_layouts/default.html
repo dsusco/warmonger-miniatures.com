@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en">
   <head>{% for stylesheet in site.stylesheets %}
-    <link href="{{ stylesheet }}" rel="stylesheet">{% endfor %}{% for stylesheet in page.stylesheets %}
-    <link href="{{ stylesheet }}" rel="stylesheet">{% endfor %}
+    <link rel="stylesheet" href="{{ stylesheet }}" />{% endfor %}{% for stylesheet in page.stylesheets %}
+    <link rel="stylesheet" href="{{ stylesheet }}" />{% endfor %}
+    {% asset warmonger-miniatures.css !type %}
 
-    <meta charset="UTF-8">
-    <meta name="author" content="{{ site.author }}">
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-    <meta name="keywords" content="{% if page.keywords %}{{ page.keywords | join: ',' }}{% else %}{{ site.keywords | join: ',' }}{% endif %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">{% if page.style %}
+    <meta charset="utf-8" />
+    <meta name="author" content="{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}" />
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+    <meta name="robots" content="index,follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />{% if page.style %}
 
     <style>
 {{ page.style }}    </style>{% endif %}
@@ -16,33 +17,102 @@
     <title>{% if page.title %}{{ page.title }} – {{ site.title }}{% else %}{{ site.title }} – {{ site.tagline }}{% endif %}</title>
   </head>
 
-  <body>
-{% include navbar.html %}
+  <body class="no-js">
+    <a class="sr-only-focusable" href="#main">Skip to main content.</a>
 
-    <div class="container">
-{% include header.html %}
+    <div id="page">
+      <header id="header">
+        <div class="container">
+          <a href="/" class="h1">
+            {{ site.title }}
+            <small>{{ site.tagline }}</small>
+          </a>
+        </div>
+      </header>
+
+      <nav id="nav">
+        <div class="container">
+          <button id="sidebar_toggle" class="fa fa-bars"><span class="sr-only">Toggle Search and Menu</span></button>
 
 {% include nav.html %}
+        </div>
+      </nav>
 
-      <div class="row">
-        <div id="sidebar" class="col-md-3 col-md-push-9 col-sm-4 col-sm-push-8">
-{% include sidebar.html %}
+      <div class="container">
+        <div id="sidebar" role="complementary" data-control="#sidebar_toggle" data-hidden="$(window).width() < 769">
+          <form id="search_form" action="/search.html" role="search">
+            <label>
+              <span class="sr-only">Search</span>
+              <input id="q" name="q" placeholder="Search for products and news…" type="search" />
+            </label>
+
+            <button class="fa fa-search" title="Search" type="submit"><span class="sr-only">Search</span></button>
+          </form>
+{% if page.url contains '/store/' %}
+{% include store_menu.html hash = site.data.products.store id = site.data.products.store.index.id %}
+{% elsif page.url contains '/news/' %}
+{% include news_menu.html hash = site.data.posts.news id = site.data.posts.news.index.id %}
+
+{% assign sorted_tags = site.data.tags | sort %}<ul id="tag_cloud">{% for pair in sorted_tags %}
+  <li>{% breadcrumb pair[1] %}</li>{% endfor %}
+</ul>
+{% endif %}
+          <form id="subscription_form" action="//warmonger-miniatures.us11.list-manage.com/subscribe/post?u=dfcd5f5a81647434d601c50cc&amp;id=91fb66a45d" method="post">
+            <label>
+              <span class="sr-only">E-mail Address</span>
+              <input id="e-mail" name="EMAIL" placeholder="e-mail@example.com…" type="email" />
+            </label>
+
+            <button type="submit">Subscribe</button>
+          </form>
         </div>
 
-        <main id="content" class="col-md-9 col-md-pull-3 col-sm-8 col-sm-pull-4">
+        <main id="main">
 {{ content }}
         </main>
       </div>
 
-{% include footer.html %}
+      <footer id="footer">
+        <div class="container">
+          <div id="footer_nav">
+            <a class="sr-only-focusable" href="#main">Go back to main content.</a>
+
+            <div><a class="h4" href="/">{{ site.title }}</a></div>
+
+{% include nav.html %}
+          </div>
+
+          <div id="forms_of_payment">
+            <p class="small">Warmonger Miniatures accepts the following via PayPal:</p>
+
+            <ul>
+              <li class="fa fa-cc-visa"><span class="sr-only">Visa</span></li>
+              <li class="fa fa-cc-mastercard"><span class="sr-only">MasterCard</span></li>
+              <li class="fa fa-cc-amex"><span class="sr-only">American Express</span></li>
+              <li class="fa fa-cc-discover"><span class="sr-only">Discover</span></li>
+              <li class="fa fa-cc-paypal"><span class="sr-only">PayPal</span></li>
+            </ul>
+          </div>
+
+          <p id="copyright_info" class="small">The preceding bits were hand-crafted, especially for you, courtesy of Dave at Warmonger Miniatures.</p>
+        </div>
+      </footer>
+    </div>
+
+    <div id="modal" class="modal faster" hidden>
+      <header class="modal-header">
+        <button class="button close"><span class="sr-only">Close</span></button>
+        <div class="modal-title">Loading…</div>
+      </header>
+
+      <div class="modal-body"></div>
     </div>
 {% for script in site.scripts %}
     <script src="{{ script }}"></script>{% endfor %}{% for script in page.scripts %}
-    <script src="{{ script }}"></script>{% endfor %}{% if page.script %}
+    <script src="{{ script }}"></script>{% endfor %}
+    {% asset warmonger-miniatures.js !type %}{% if page.script %}
 
     <script>
-{{ page.script }}   </script>{% endif %}
-
-{% include gallery.html %}
+{{ page.script }}    </script>{% endif %}
   </body>
 </html>

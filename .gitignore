@@ -1,11 +1,3 @@
-.*
-access-logs
-bower_components/
-etc/
-logs/
-mail/
-public_html/
-ruby/
-ssl/
-tmp/
-www
+public_html
+.jekyll-cache
+.jekyll-metadata
