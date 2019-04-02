@@ -20,11 +20,13 @@ module Jekyll
       end
 
       self.data['breadcrumb'] ||= (self.data['breadcrumb_template'] % self.data.deep_symbolize_keys).strip rescue nil
+      self.data['description'] ||= (self.data['description_template'] % self.data.deep_symbolize_keys).strip rescue nil
       self.data['heading'] ||= (self.data['heading_template'] % self.data.deep_symbolize_keys).strip rescue nil
       self.data['title'] ||= (self.data['title_template'] % self.data.deep_symbolize_keys).strip rescue ActiveSupport::Inflector.titleize(name)
       self.data['id'] ||= ActiveSupport::Inflector.parameterize(self.data['title'], { separator: '_' })
 
       self.data['breadcrumb'].gsub!(/ +/, ' ') rescue nil
+      self.data['description'].gsub!(/ +/, ' ') rescue nil
       self.data['heading'].gsub!(/ +/, ' ') rescue nil
       self.data['title'].gsub!(/ +/, ' ')
 

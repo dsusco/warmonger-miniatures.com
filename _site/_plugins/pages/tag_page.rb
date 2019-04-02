@@ -16,10 +16,12 @@ module Jekyll
       self.data['tag'] ||= tag
 
       self.data['breadcrumb'] ||= (self.data['breadcrumb_template'] % self.data.deep_symbolize_keys).strip rescue nil
+      self.data['description'] ||= (self.data['description_template'] % self.data.deep_symbolize_keys).strip rescue nil
       self.data['heading'] ||= (self.data['heading_template'] % self.data.deep_symbolize_keys).strip rescue nil
       self.data['title'] ||= (self.data['title_template'] % self.data.deep_symbolize_keys).strip rescue tag.titleize
 
       self.data['breadcrumb'].gsub!(/ +/, ' ') rescue nil
+      self.data['description'].gsub!(/ +/, ' ') rescue nil
       self.data['heading'].gsub!(/ +/, ' ') rescue nil
       self.data['title'].gsub!(/ +/, ' ')
 
