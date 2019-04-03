@@ -28,6 +28,7 @@
     @include grid-shift(-3);
 
     .product-container {
+      @include grid-container();
       @include grid-collapse();
     }
 

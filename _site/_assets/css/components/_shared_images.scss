@@ -1,0 +1,34 @@
+.shared-images {
+  @include _(1.3rem);
+
+  border: .1rem solid $_color_light;
+  border-radius: .4rem;
+  padding: (($_ / 2) - .1rem) 1rem;
+
+  > :last-child {
+    margin: 0 auto;
+    max-width: 30em;
+    padding-left: 4rem;
+    position: relative;
+
+    &::before {
+      @include font-awesome('\f16d');
+      @include _($_font_size * 2);
+      @include position(absolute, 50% null null 0);
+
+      margin-top: -1 * $_font_size * $_line_height;
+    }
+  }
+
+  @include grid-media($md-neat-grid) {
+
+  }
+
+  @include grid-media($lg-neat-grid) {
+
+  }
+
+  @include grid-media($xl-neat-grid) {
+
+  }
+}
