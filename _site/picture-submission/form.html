@@ -1,0 +1,30 @@
+---
+description: A form for customers to submitted pictures of their painted Warmonger Miniatures.
+title: Picture Submission Form
+heading: Warmonger Miniatures Picture Submission Form
+---
+<script>var submitted = false;</script>
+<iframe id="hidden_iframe" name="hidden_iframe" style="display:none" onload="if(submitted){window.location='/picture-submission/complete.html';}"></iframe>
+
+<form action="https://docs.google.com/forms/u/2/d/e/1FAIpQLScHOgEnV0AAulErSZYkptQCQj2bpZC6ykorLjG1tp1yd6-44g/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+  <p>If you're interested in sharing pictures of your painted Warmonger Miniatures on this website you can submit them via the following form. Not all submissions can be used but those that clearly show off Warmonger Miniatures are likely to be.</p>
+
+  <label>
+    E-mail
+    <input type="email" name="emailAddress" autocomplete="email" placeholder="Your e-mail address…" required />
+  </label>
+
+  <label>
+    Artist
+    <input type="text" name="entry.825772928" placeholder="Your name/nickname/handle…" required />
+  </label>
+
+  <label>
+    Image <abbr>URL</abbr>
+    <input type="url" name="entry.527988313" autocomplete="off" placeholder="A direct link to the image…" required />
+  </label>
+
+  <input type="submit" style="float:right" />
+
+  <p style="margin-right:5em">Your e-mail address will only be used to get in touch with you about your submission, it won't be shared nor made public.</p>
+</form>
