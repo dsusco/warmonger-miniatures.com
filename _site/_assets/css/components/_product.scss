@@ -1,0 +1,16 @@
+.product {
+  @include grid-media($xl-neat-grid) {
+    @include grid-container();
+    @include grid-collapse();
+
+    .product-content {
+      @include grid-column(7);
+      @include grid-shift(5);
+    }
+
+    .slideshow {
+      @include grid-column(5);
+      @include grid-shift(-7);
+    }
+  }
+}
