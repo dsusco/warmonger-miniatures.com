@@ -1,7 +1,7 @@
 ---
 layout: page
 ---
-<div class="product-container">
+<div class="product">
   <div class="product-content">
   {{ content }}
 
@@ -16,9 +16,15 @@ layout: page
 </div>
 
 <div class="shared-images">
-  <p>
-    Share your miniatures with other discerning Warmasters!
-    <br>
-    Tag your Instagram posts with <b>#PaintingWarmonger</b> (or <a href="/picture-submission/form.html">submit via our form</a>) and you may see them here.
+  <div class="images">{% for image in page.shared_images %}
+    <a href="{{ image.secure_url | cloudinary_transformation: 'w_800,h_600,c_fit' }}" data-modal-title="{{ image.context.custom.caption }}" data-modal-title-url="{{ image.context.custom.URL }}"><img alt="{{ page.title }} by {{ image.context.custom.caption }}" src="{{ image.secure_url | cloudinary_transformation: 'w_160,h_120,c_fit' }}" /></a>{% endfor %}
+  </div>
+
+  <p class="content">
+    <span>
+      Share your miniatures with other discerning Warmasters!
+      <br>
+      Tag your Instagram posts with <b>#PaintingWarmonger</b> (or <a href="/picture-submission/form.html">submit via our form</a>) and you may see them here.
+    </span>
   </p>
 </div>
