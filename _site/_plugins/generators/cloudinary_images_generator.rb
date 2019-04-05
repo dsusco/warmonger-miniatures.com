@@ -24,8 +24,10 @@ module Jekyll
       site.collections.reduce(site.pages) { |docs, (k, v)| docs + v.docs } .each do |doc|
         if !Jekyll.env.eql?('production')
           doc.data['images'].map! { sample } rescue doc.data['images'] = [sample, sample, sample]
+          doc.data['shared_images'] = [sample, sample, sample]
         elsif doc.data['product_code']
           doc.data['images'] = Cloudinary::Api.resources_by_tag(doc.data['product_code'], { context: true, max_results: 500, resource_type: :image })['resources'].sort{ |x, y| x['public_id'] <=> y['public_id'] }
+          doc.data['shared_images'] = Cloudinary::Api.resources_by_tag(doc.data['product_code'] + '-shared', { context: true, max_results: 500, resource_type: :image })['resources']
         elsif doc.data['images']
           doc.data['images'] = Cloudinary::Api.resources_by_ids(doc.data['images'], { context: true })['resources']
         end

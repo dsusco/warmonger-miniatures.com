@@ -1,13 +1,36 @@
 .shared-images {
   @include _(1.3rem);
+  @include clearfix();
 
   border: .1rem solid $_color_light;
   border-radius: .4rem;
+  min-height: 6rem + $_;
   padding: (($_ / 2) - .1rem) 1rem;
 
-  > :last-child {
-    margin: 0 auto;
-    max-width: 30em;
+  .images {
+    float: left;
+    overflow-x: auto;
+    margin-bottom: $_ / 2;
+    white-space: nowrap;
+
+    a {
+      position: relative;
+
+      &::before {
+        @include font-awesome('\f110');
+        @include position(absolute, 0 calc(50% - #{$_font_size / 2}) null null);
+        @include prefixer(animation, fa-spin 2s infinite linear, ('webkit'));
+
+        color: $_body_color;
+        z-index: -1;
+      }
+    }
+  }
+
+  .content {
+    float: right;
+    margin-bottom: 0;
+    max-width: 37rem;
     padding-left: 4rem;
     position: relative;
 
@@ -17,11 +40,28 @@
       @include position(absolute, 50% null null 0);
 
       margin-top: -1 * $_font_size * $_line_height;
+      text-align: center;
+      width: 4rem;
     }
   }
 
   @include grid-media($md-neat-grid) {
+    padding-right: 38rem;
+    position: relative;
 
+    .images {
+      float: none;
+      margin-bottom: 0;
+    }
+
+    .content {
+      @include position(absolute, (($_ / 2) - .1rem) 1rem);
+
+      align-items: center;
+      display: flex;
+      left: auto;
+      width: 37rem;
+    }
   }
 
   @include grid-media($lg-neat-grid) {

@@ -1,8 +1,8 @@
 GIT
   remote: git@github.com:dsusco/baseline-scss.git
-  revision: def527cb717bd4668649124953e2e3a249a5cce0
+  revision: 81e4386716e084a3cb824a68559d88c240d36556
   specs:
-    baseline-scss (0.1.5)
+    baseline-scss (0.1.6)
       bourbon (~> 5.1, >= 5.1.0)
       neat (~> 3.0, >= 3.0.1)
       normalize-scss (~> 7.0, >= 7.0.1)
@@ -112,7 +112,7 @@ GEM
     rouge (3.3.0)
     ruby_dep (1.5.0)
     safe_yaml (1.0.5)
-    sass (3.7.3)
+    sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
