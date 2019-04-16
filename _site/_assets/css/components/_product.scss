@@ -1,7 +1,9 @@
 .product {
   @include grid-media($xl-neat-grid) {
-    @include grid-container();
-    @include grid-collapse();
+    &:not(.card) {
+      @include grid-container();
+      @include grid-collapse();
+    }
 
     .product-content {
       @include grid-column(7);
