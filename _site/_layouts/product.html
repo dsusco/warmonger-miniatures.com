@@ -5,8 +5,6 @@ layout: page
   <div class="product-content">
   {{ content }}
 
-    <p>Sculpted by <a href="http://www.bobnaismith.com/">Bob Naismith</a> and cast by <a href="http://www.danddmodelcleaningandcasting.com/">D &amp; D Model Cleaning &amp; Casting</a> in lead free pewter.</p>
-
   {% include paypal_form.html %}
   </div>
 
@@ -15,7 +13,7 @@ layout: page
   </div>
 </div>
 
-<div class="shared-images">
+{% unless page.no_shared_images %}<div class="shared-images">
   <div class="images">{% for image in page.shared_images %}
     <a href="{{ image.secure_url | cloudinary_transformation: 'w_800,h_600,c_fit' }}" data-modal-title="{{ image.context.custom.caption }}" data-modal-title-url="{{ image.context.custom.URL }}"><img alt="{{ page.title }} by {{ image.context.custom.caption }}" src="{{ image.secure_url | cloudinary_transformation: 'w_160,h_120,c_fit' }}" /></a>{% endfor %}
   </div>
@@ -27,4 +25,4 @@ layout: page
       Tag your Instagram posts with <b>#PaintingWarmonger</b> (or <a href="/picture-submission/form.html">submit via our form</a>) and you may see them here.
     </span>
   </p>
-</div>
+</div>{% endunless %}
