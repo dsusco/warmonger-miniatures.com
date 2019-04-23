@@ -9,7 +9,7 @@ $(function () {
       open: false,
       openingAnimation: 'fadeIn'
     }),
-    $slideshow = $('.slideshow')
+    $slideshow = $('.slideshow').has('> * + *')
       .slideshow()
       .on('slideshow:sliding', function (event, extraParameters) {
         // when a slide happens while the modal is open
