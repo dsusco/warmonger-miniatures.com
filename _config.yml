@@ -2,7 +2,8 @@ author: David Susco
 description: The home of high-quality, 10mm fantasy and historical minis.
 scripts:
   - https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js
 stylesheets:
   - https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
@@ -79,3 +80,9 @@ defaults:
     values:
       description: Warmonger Miniatures' line of laser cut, polystyrene bases.
       image: https://res.cloudinary.com/warmonger-miniatures/image/upload/w_640,h_480,c_fit/v1556023297/warmonger-miniatures.com/store/bases/b1.5bx20x40-3.jpg
+  -
+    scope:
+      path: store/preorders/index.html
+    values:
+      description: Warmonger Miniatures' Preorders.
+      image: https://res.cloudinary.com/warmonger-miniatures/image/upload/w_640,h_480,c_fit/v1556023297/warmonger-miniatures.com/news/winged-hussar-wip.jpg
