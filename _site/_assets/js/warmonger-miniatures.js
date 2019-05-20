@@ -174,4 +174,20 @@ $(function () {
       // don't follow the link
       return false;
     });
+
+    $modal
+      .swipe({
+        swipeLeft: function() {
+          $modal
+            .find('.modal-body .pager .next').click();
+        },
+        swipeRight: function() {
+          $modal
+            .find('.modal-body .pager .previous').click();
+        },
+        swipeUp: function() {
+          $modal
+            .trigger('modal:close');
+        }
+      });
 });
