@@ -10,5 +10,5 @@ gem 'sprockets', '~> 3.7.2'
 gem 'uglifier', '~> 4.1.20'
 
 group :jekyll_plugins do
-  gem 'baseline-scss', '~> 0.1.0', :git => 'git@github.com:dsusco/baseline-scss.git'
+  gem 'baseline-scss', '~> 0.2.0', :git => 'git@github.com:dsusco/baseline-scss.git'
 end
