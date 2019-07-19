@@ -2,4 +2,5 @@ RewriteEngine On
 RewriteCond %{SERVER_PORT} 80
 RewriteRule ^(.*)$ https://warmonger-miniatures.com/$1 [R=301,L]
 
-RedirectMatch 303 ^/store/preorders /store/
+RedirectMatch 301 ^/store/preorders/husaria-winged-hussars.html /store/10mm-polish-lithuanian/husaria-winged-hussars.html
+RedirectMatch 302 ^/store/preorders /store/

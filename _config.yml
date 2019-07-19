@@ -76,6 +76,12 @@ defaults:
       image: https://res.cloudinary.com/warmonger-miniatures/image/upload/w_640,h_480,c_fit/v1543432101/warmonger-miniatures.com/store/10mm-landsknechte/ls01/ls01.jpg
   -
     scope:
+      path: store/10mm-polish-lithuanian/index.html
+    values:
+      description: Warmonger Miniatures' line of 10mm Polish-Lithuanians.
+      image: https://res.cloudinary.com/warmonger-miniatures/image/upload/w_640,h_480,c_fit/v1543432101/warmonger-miniatures.com/store/10mm-polish-lithuanian/pl01/pl01a.jpg
+  -
+    scope:
       path: store/bases/index.html
     values:
       description: Warmonger Miniatures' line of laser cut, polystyrene bases.
