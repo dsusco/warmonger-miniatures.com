@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'jekyll', '~> 3.8.5'
-gem 'activesupport', '~> 5.2.2'
+gem 'activesupport', '~> 5.2.4'
 gem 'cloudinary', '~> 1.11.1'
 gem 'jekyll-assets', '~> 3.0.12'
 gem 'sprockets', '~> 3.7.2'
