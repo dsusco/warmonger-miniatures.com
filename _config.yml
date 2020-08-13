@@ -72,15 +72,22 @@ defaults:
     scope:
       path: store/10mm-landsknechte/index.html
     values:
-      description: Warmonger Miniatures' line of 10mm Landsknechte and 16th century Germans.
+      description: Warmonger Miniatures' line of 10mm Landsknecht and 16th century German miniatures.
       image: https://res.cloudinary.com/warmonger-miniatures/image/upload/w_640,h_480,c_fit/v1543432101/warmonger-miniatures.com/store/10mm-landsknechte/ls01/ls01.jpg
   -
     scope:
       path: store/10mm-polish-lithuanian/index.html
     values:
-      description: Warmonger Miniatures' line of 10mm Polish-Lithuanians.
+      description: Warmonger Miniatures' line of 10mm Polish-Lithuanian miniatures.
       image: https://res.cloudinary.com/warmonger-miniatures/image/upload/w_640,h_480,c_fit/v1543432101/warmonger-miniatures.com/store/10mm-polish-lithuanian/pl01/pl01a.jpg
       title: 10mm Polish-Lithuanian
+  -
+    scope:
+      path: store/10mm-fantasy/index.html
+    values:
+      description: Warmonger Miniatures' line of 10mm Fantasy miniatures.
+      image: https://res.cloudinary.com/warmonger-miniatures/image/upload/w_640,h_480,c_fit/v1543432101/warmonger-miniatures.com/store/10mm-fantasy/fn01/fn01.jpg
+      title: 10mm Fantasy
   -
     scope:
       path: store/bases/index.html

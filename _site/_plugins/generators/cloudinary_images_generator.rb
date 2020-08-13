@@ -1,14 +1,9 @@
 module Jekyll
   class ProductImagesGenerator < Jekyll::Generator
     require 'cloudinary'
+    require 'yaml'
 
-    Cloudinary.config({
-      cloud_name: 'warmonger-miniatures',
-      api_key: '983812993163396',
-      api_secret: 'VzasF_MEiKGVcxmQ4_2N4QN1xFk',
-      enhance_image_tag: true,
-      static_file_support: true
-    })
+    Cloudinary.config(YAML.load(File.read('_cloudinary.yml')))
 
     def generate(site)
       sample = {
