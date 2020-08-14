@@ -6,7 +6,7 @@ layout: page
     <a href="{{ category.url }}">
       <figure>
         <figcaption>{{ category.title }}</figcaption>
-        <img alt="{{ category.title }}" src="{{ category.image | cloudinary_transformation: 'w_640,h_480,c_fit' }}" />
+        <img alt="{{ category.title }}" src="{{ category.image.secure_url | cloudinary_transformation: 'w_640,h_480,c_fit' }}" />
       </figure>
     </a>
   </div>
