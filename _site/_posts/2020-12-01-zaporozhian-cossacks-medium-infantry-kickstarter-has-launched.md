@@ -1,7 +1,7 @@
 ---
 title: Zaporozhian Cossacks (Medium Infantry) Kickstarter Has Launched!
 date: 2020-12-01 11:25:00 EDT
-description: 'Warmonger Miniatures launched a new Kickstarter: Zaporozhian  Cossacks (Medium Infantry).'
+description: 'Warmonger Miniatures launched a new Kickstarter: Zaporozhian Cossacks (Medium Infantry).'
 images:
   - warmonger-miniatures.com/news/cossack-wip5
 tags: Kickstarter Polish-Lithuanian
