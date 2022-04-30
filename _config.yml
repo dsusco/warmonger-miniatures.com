@@ -90,6 +90,13 @@ defaults:
       title: 10mm Fantasy
   -
     scope:
+      path: store/10mm-savafid/index.html
+    values:
+      description: Warmonger Miniatures' line of 10mm Savafid miniatures.
+      image: warmonger-miniatures.com/store/10mm-savafid/sv01/sv01a
+      title: 10mm Savafid
+  -
+    scope:
       path: store/bases/index.html
     values:
       description: Warmonger Miniatures' line of laser cut, polystyrene bases.
