@@ -8,7 +8,7 @@ images:
 tags:
   - Kickstarter
   - Polish-Lithuanian
-  - Safavid Iranian
+  - Safavid
 ---
 The [10mm Polish Peasant Archers and Safavid Gholam Spearmen](https://www.kickstarter.com/projects/1765086496/10mm-polish-peasant-archers-and-safavid-gholam-spearmen) has been funded!
 
